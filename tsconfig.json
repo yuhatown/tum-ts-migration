@@ -1,0 +1,35 @@
+{
+  "compilerOptions": { // 실제 컴파일 할 경우 적용되는 옵션들
+
+    "lib": ["dom", "es2015", "es2016"],                  // 현재 프로젝트에서 사용할 수 있는 특정 기능에 대한 문법(타입)을 추가해준다. ()
+    "target": "es5",                                     // 어떤 버전으로 컴파일할지 작성
+    "module": "commonjs",                                // 어떤 모듈 방식으로 컴파일할지 설정
+    "moduleResolution": "node",                          // node.js가 사용하는 방식으로 모듈을 찾는다.
+    "rootDir": "./src",                                  // 시작하는 루트 폴더
+    "outDir": "./dist",                                  // 컴파일 후 생성되는 js파일이 생성될 폴더명
+    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
+    
+    // "resolveJsonModule": true,                        /* Enable importing .json files. */
+    "esModuleInterop": true,                             // es6와 commonjs의 module export방법이 서로 다르나, 이것을 잡아줌
+    // "composite": true,
+    "allowSyntheticDefaultImports": true,                // Allow 'import x from y' when a module doesn't have a default export.
+    "strict": true,                                      // typescript의 type 검사 옵션 중 strict* 관련된 모든 것을 true로 만들게 된다.
+    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
+    "noImplicitAny": true,                               // Enable error reporting for expressions and declarations with an implied 'any' type.
+    "noUnusedLocals": true,                              // Enable error reporting when local variables aren't read.
+    "noUnusedParameters": true,                          // Raise an error when a function parameter isn't read.
+
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // "strictPropertyInitialization": false,
+    // "allowUnusedLabels": true,
+
+    // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
+    // "declaration": true
+  },
+  "include": ["src/**/*.ts"],                            // 컴파일할 파일 경로를 설정(src폴더 하위의 모든 .ts 확장자를 가진 파일), (*: 없거나 하나 이상의 문자열과 일치, ?: 하나의 문자와 일치(디렉터리 구분자 제외), **/: 단계에 관계없이 아무 디렉터리와 일치
+  // "exclude": []                                       // 컴파일 대상을 제외하는 옵션(기본: node_modules, bower_components, jspm_packages, <outDir>) 
+  // "files": []                                         // 원하는 파일만 실행가능  
+}
