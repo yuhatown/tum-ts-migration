@@ -9,7 +9,7 @@
     "outDir": "./dist",                                  // 컴파일 후 생성되는 js파일이 생성될 폴더명
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     
-    // "resolveJsonModule": true,                        /* Enable importing .json files. */
+    "resolveJsonModule": true,                           // Enable importing .json files.
     "esModuleInterop": true,                             // es6와 commonjs의 module export방법이 서로 다르나, 이것을 잡아줌
     // "composite": true,
     "allowSyntheticDefaultImports": true,                // Allow 'import x from y' when a module doesn't have a default export.
