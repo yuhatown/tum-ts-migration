@@ -1,16 +1,19 @@
 import express from "express";
 import mainRouter from "./controller/main.controller";
 import userRouter from "./controller/user.controller";
+import userWalletRouter from "./controller/user.wallet.controller";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", mainRouter);
 app.use("/user", userRouter);
+app.use("/user/wallet", userWalletRouter);
 
-app.listen(port, () => {
+app.listen(process.env.DB_PORT, () => {
   console.log(`connected! http://localhost:3000`);
 });
