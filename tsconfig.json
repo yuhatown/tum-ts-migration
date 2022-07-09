@@ -2,7 +2,7 @@
   "compilerOptions": { // 실제 컴파일 할 경우 적용되는 옵션들
 
     "lib": ["dom", "es2015", "es2016"],                  // 현재 프로젝트에서 사용할 수 있는 특정 기능에 대한 문법(타입)을 추가해준다. ()
-    "target": "es5",                                     // 어떤 버전으로 컴파일할지 작성
+    "target": "es6",                                     // 어떤 버전으로 컴파일할지 작성
     "module": "commonjs",                                // 어떤 모듈 방식으로 컴파일할지 설정
     "moduleResolution": "node",                          // node.js가 사용하는 방식으로 모듈을 찾는다.
     "rootDir": "./src",                                  // 시작하는 루트 폴더
@@ -10,7 +10,8 @@
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     
     "resolveJsonModule": true,                           // Enable importing .json files.
-    "esModuleInterop": true,                             // es6와 commonjs의 module export방법이 서로 다르나, 이것을 잡아줌
+    "removeComments": true,                              // 컴파일 후 빌드 파일의 주석을 지워줌
+    "esModuleInterop": true,                             // CommonJS, Es Module 상호운용 가능하게 적용
     // "composite": true,
     "allowSyntheticDefaultImports": true,                // Allow 'import x from y' when a module doesn't have a default export.
     "strict": true,                                      // typescript의 type 검사 옵션 중 strict* 관련된 모든 것을 true로 만들게 된다.
@@ -20,8 +21,8 @@
     "noUnusedLocals": true,                              // Enable error reporting when local variables aren't read.
     "noUnusedParameters": true,                          // Raise an error when a function parameter isn't read.
 
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     // "strictPropertyInitialization": false,
     // "allowUnusedLabels": true,
 
