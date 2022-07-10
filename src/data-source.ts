@@ -1,6 +1,7 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "./model/user.entity"
+import { UserWallet } from "./model/user.wallet.entity"
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -13,7 +14,7 @@ export const TumDataSource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [User, UserWallet],
     // migrations: [],
     // subscribers: [],
 })
