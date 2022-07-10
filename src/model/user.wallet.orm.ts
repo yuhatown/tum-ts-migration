@@ -5,8 +5,7 @@ const userRepository = TumDataSource.getRepository(UserWallet);
 
 export async function GetUserWallet(userId: number) {
     const userWalletList = await userRepository.find({where: {id: userId}})   
-    console.log(userWalletList);
-     
+    console.log(userWalletList)
 }
 
 export async function RegisterUserWallet(userId: number, userTokenId: number, userAddress: string) {
