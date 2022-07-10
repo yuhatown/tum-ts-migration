@@ -1,5 +1,5 @@
 import * as express from "express";
-import { TokenListGet, TokenRegister } from "../model/token.service";
+import { TokenDelete, TokenListGet, TokenRegister, TokenUpdate } from "../model/token.service";
 import axios from "axios";
 import { tokenInfoConfig } from "../config";
 
@@ -11,7 +11,7 @@ router.get("/", (_req, res) => {
   res.status(200).send();
 });
 
-router.get("/coingecko", (_req, res) => {
+router.get("/coingecko/all", (_req, res) => {
     axios(tokenInfoConfig)
     .then(function (response) {
         const token = response.data;
@@ -27,6 +27,21 @@ router.get("/coingecko", (_req, res) => {
     });
     res.status(200).send();
 });
+
+router.post("update/:id", (req, res) => {
+  const tokenId = parseInt(req.params.id);
+  const tokenName = req.body.name;
+  const token = new TokenUpdate(tokenId, tokenName);
+  token.update(tokenId, tokenName)
+  res.status(200).send();
+})
+
+router.post("delete/:id", (req, res) => {
+  const tokenId = parseInt(req.params.id);
+  const token = new TokenDelete(tokenId);
+  token.delete(tokenId);
+  res.status(200).send();
+})
 
 export = router;
 
