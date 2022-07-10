@@ -9,8 +9,9 @@ export async function GetUserWallet(userId: number) {
      
 }
 
-export async function RegisterUserWallet(userTokenId: number, userAddress: string) {
+export async function RegisterUserWallet(userId: number, userTokenId: number, userAddress: string) {
     const newUserWallet = userRepository.create({
+        user_id: userId,
         token_id: userTokenId,
         address: userAddress
     })

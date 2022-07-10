@@ -11,9 +11,9 @@ router.get('/:user_id', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    const { tokenId, userWallet } = req.body;
-    const wallet = new UserWalletRegister(tokenId, userWallet)
-    wallet.register(tokenId, userWallet)
+    const { userId, tokenId, userWallet } = req.body;
+    const wallet = new UserWalletRegister(userId, tokenId, userWallet)
+    wallet.register(userId, tokenId, userWallet)
     res.status(200).send();
 })
 

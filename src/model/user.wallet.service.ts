@@ -5,6 +5,7 @@ interface UserWalletGetTable {
 }
 
 interface UserWalletRegisterTable {
+    userId: number
     tokenId: number,
     userWallet: string
 }
@@ -31,15 +32,17 @@ export class UserWalletGet implements UserWalletGetTable {
 }
 
 export class UserWalletRegister implements UserWalletRegisterTable {
+    userId : number
     tokenId: number
     userWallet: string
-    constructor(tokenId: number, userWallet: string) {
+    constructor(userId : number, tokenId: number, userWallet: string) {
+        this.userId = userId
         this.tokenId = tokenId
         this.userWallet = userWallet
     }
 
-    register(tokenId: number, userWallet: string) {
-        RegisterUserWallet(tokenId, userWallet)
+    register(userId: number, tokenId: number, userWallet: string) {
+        RegisterUserWallet(userId, tokenId, userWallet)
     }
 }
 
