@@ -17,5 +17,5 @@ app.use("/user/wallet", userWalletRouter);
 app.use("/token", tokenRouter);
 
 app.listen(process.env.DB_PORT, () => {
-  console.log(`connected! http://localhost:3000`);
+  console.log(`connected! http://localhost:${process.env.DB_PORT}`);
 });
