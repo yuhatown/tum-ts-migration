@@ -1,13 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
-@Entity()
+@Entity({ name: 'wallet' })
 export class UserWallet {
 
     @PrimaryGeneratedColumn()
     id!: number
-
-    @Column()
-    user_id!: number
 
     @Column()
     token_id!: number

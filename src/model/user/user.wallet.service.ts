@@ -1,11 +1,6 @@
-import { DeleteUserWallet, GetUserWallet, RegisterUserWallet, UpdateUserWallet } from './user.wallet.orm'
-
-interface UserWalletGetTable {
-    userId: number
-}
+import { DeleteUserWallet, RegisterUserWallet, UpdateUserWallet } from './user.wallet.orm'
 
 interface UserWalletRegisterTable {
-    userId: number
     tokenId: number,
     userWallet: string
 }
@@ -20,29 +15,16 @@ interface UserWalletDeleteTable {
     walletId: number
 }
 
-export class UserWalletGet implements UserWalletGetTable {
-    userId: number
-    constructor(userId: number) {
-        this.userId = userId
-    }
-
-    get(userId: number) {      
-        GetUserWallet(userId)  
-    }
-}
-
 export class UserWalletRegister implements UserWalletRegisterTable {
-    userId : number
     tokenId: number
     userWallet: string
-    constructor(userId : number, tokenId: number, userWallet: string) {
-        this.userId = userId
+    constructor(tokenId: number, userWallet: string) {
         this.tokenId = tokenId
         this.userWallet = userWallet
     }
 
-    register(userId: number, tokenId: number, userWallet: string) {
-        RegisterUserWallet(userId, tokenId, userWallet)
+    register(tokenId: number, userWallet: string) {
+        RegisterUserWallet(tokenId, userWallet)
     }
 }
 
