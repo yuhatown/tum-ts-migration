@@ -3,22 +3,11 @@ import { UserWallet } from "./user.wallet.entity";
 
 const userRepository = TumDataSource.getRepository(UserWallet);
 
-export async function GetUserWallet(userId: number) {
-  const userWalletList = await userRepository.find({
-    where: {
-      id: userId,
-    },
-  });
-  console.log(userWalletList);
-}
-
 export async function RegisterUserWallet(
-  userId: number,
   userTokenId: number,
   userAddress: string
 ) {
   const newUserWallet = userRepository.create({
-    user_id: userId,
     token_id: userTokenId,
     address: userAddress,
   });
