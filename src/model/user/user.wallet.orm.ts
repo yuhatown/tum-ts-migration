@@ -1,4 +1,4 @@
-import { TumDataSource } from "../data-source";
+import { TumDataSource } from "../../data-source";
 import { UserWallet } from "./user.wallet.entity";
 
 const userRepository = TumDataSource.getRepository(UserWallet);
