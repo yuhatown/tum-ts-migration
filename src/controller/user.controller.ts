@@ -1,5 +1,5 @@
 import * as express from "express";
-import { UserDelete, UserGet, UserRegister, UserUpdate } from "../model/user.service";
+import { UserDelete, UserGet, UserRegister, UserUpdate } from "../model/user/user.service";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import * as express from "express";
-import { UserWalletDelete, UserWalletGet, UserWalletRegister, UserWalletUpdate } from "../model/user.wallet.service";
+import { UserWalletDelete, UserWalletGet, UserWalletRegister, UserWalletUpdate } from "../model/user/user.wallet.service";
 
 const router = express.Router();
 

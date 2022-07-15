@@ -1,5 +1,5 @@
 import * as express from "express";
-import { TokenDelete, TokenListGet, TokenRegister, TokenUpdate } from "../model/token.service";
+import { TokenDelete, TokenListGet, TokenRegister, TokenUpdate } from "../model/token/token.service";
 import axios from "axios";
 import { tokenInfoConfig } from "../config";
 
