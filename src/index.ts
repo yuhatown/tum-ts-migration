@@ -4,6 +4,7 @@ import userRouter from "./controller/user.controller";
 import userWalletRouter from "./controller/user.wallet.controller";
 import tokenRouter from "./controller/token.controller";
 import tokenPriceRouter from "./controller/token.price.controller";
+import userWalletMapRouter from "./controller/user.wallet.map.controller";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", mainRouter);
 app.use("/user", userRouter);
 app.use("/user/wallet", userWalletRouter);
+app.use("/user/wallet/map", userWalletMapRouter);
 app.use("/token", tokenRouter);
 app.use("/token/price", tokenPriceRouter);
 

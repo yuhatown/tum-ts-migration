@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "./model/user/user.entity"
 import { UserWallet } from "./model/user/user.wallet.entity"
+import { UserWalletMap } from "./model/user/user.wallet.map.entity"
 import { Token } from "./model/token/token.entity"
 import { TokenPrice } from "./model/token/token.price.entity"
 import * as dotenv from "dotenv";
@@ -16,7 +17,7 @@ export const TumDataSource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: false,
     logging: false,
-    entities: [User, UserWallet, Token, TokenPrice],
+    entities: [User, UserWallet, UserWalletMap, Token, TokenPrice],
     // migrations: [],
     // subscribers: [],
 })

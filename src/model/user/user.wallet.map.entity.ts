@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity({ name: 'map_user_wallet' })
-export class MapUserWallet {
+export class UserWalletMap {
 
     @PrimaryGeneratedColumn()
     id!: number
@@ -11,7 +11,4 @@ export class MapUserWallet {
 
     @Column()
     wallet_id!: number
-
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
-    created_at!: Date
 }
