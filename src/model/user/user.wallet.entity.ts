@@ -1,10 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, Column } from "typeorm"
 
 @Entity({ name: 'wallet' })
 export class UserWallet {
-
-    @PrimaryGeneratedColumn()
-    id!: number
 
     @Column()
     token_id!: number
