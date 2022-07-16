@@ -11,10 +11,5 @@ export class TokenPrice {
 
     @Column()
     price!: number
-
-    @Column({
-        length: 50
-    })
-    last_updated!: string
 }
 

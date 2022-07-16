@@ -13,7 +13,4 @@ export class UserWallet {
         length: 50
     })
     address!: string
-
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
-    created_at!: Date
 }

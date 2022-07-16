@@ -14,7 +14,4 @@ export class WalletStaked {
 
     @Column()
     staked!: number
-
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
-    created_at!: Date
 }
