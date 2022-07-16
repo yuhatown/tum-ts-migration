@@ -10,8 +10,8 @@ export async function GetUserWalletMap(userId: number){
 
 export async function RegisterUserWalletMap(userId: number, walletId: number) {
     const newUserWalletMap = userRepository.create({
-        user_id: userId,
-        wallet_id: walletId,
+        userId: userId,
+        walletId: walletId,
       });
       await userRepository.save(newUserWalletMap);
       console.log("Saved a new user with id: " + newUserWalletMap.id);

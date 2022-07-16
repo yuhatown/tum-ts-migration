@@ -8,11 +8,11 @@ export async function GetTokenPriceList() {
     console.log(tokenPriceList)
 }
 
-export async function RegisterTokenPrice(tokenId: number, tokenPrice: number) {
+export async function RegisterTokenPrice(tokenId: number, tokenPrice: string) {
     const newTokenPrice = userRepository.create({
-        token_id: tokenId,
+        tokenId: tokenId,
         price: tokenPrice
     })
     await userRepository.save(newTokenPrice)
-    console.log("Saved a new token with id: " + newTokenPrice.id);
+    console.log("Saved a new token with price: " + newTokenPrice.price);
 }

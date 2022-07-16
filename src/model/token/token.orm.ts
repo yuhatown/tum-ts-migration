@@ -13,7 +13,7 @@ export async function RegisterToken(tokenName: string) {
         name: tokenName
     })
     await userRepository.save(newToken)
-    console.log("Saved a new token with id: " + newToken.id);
+    console.log("Saved a new token with name: " + newToken.name);
 }
 
 export async function UpdateToken(tokenId: number, tokenName: string) {

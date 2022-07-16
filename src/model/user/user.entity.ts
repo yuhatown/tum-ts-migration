@@ -3,10 +3,24 @@ import { Entity, Column } from "typeorm";
 export class User {
 
     @Column({
-        length: 20
+        name: 'id',
+        type: 'int',
+        nullable: false
     })
+    id!: number
+
+    @Column({
+        name: 'name',
+        type: 'varchar',
+        nullable: false,
+        length: 20
+      })
     name!: string
 
-    @Column({ default: true })
-    is_active!: boolean
+    @Column({
+        name: 'is_active', 
+        type: 'tinyint',
+        default: '1'
+    })
+    isActive!: boolean
 }

@@ -8,7 +8,7 @@ export async function RegisterUserWallet(
   userAddress: string
 ) {
   const newUserWallet = userRepository.create({
-    token_id: userTokenId,
+    tokenId: userTokenId,
     address: userAddress,
   });
   await userRepository.save(newUserWallet);
@@ -21,7 +21,7 @@ export async function UpdateUserWallet(
   userAddress: string
 ) {
   await userRepository.update(userWalletId, {
-    token_id: userTokenId,
+    tokenId: userTokenId,
     address: userAddress,
   });
 }

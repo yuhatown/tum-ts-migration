@@ -4,7 +4,7 @@ import userRouter from "./controller/user.controller";
 import userWalletRouter from "./controller/user.wallet.controller";
 import tokenRouter from "./controller/token.controller";
 import tokenPriceRouter from "./controller/token.price.controller";
-import userWalletMapRouter from "./controller/user.wallet.map.controller";
+import userWalletMapRouter from "./controller/user.wallet.map.controller"
 import * as dotenv from "dotenv";
 dotenv.config();
 

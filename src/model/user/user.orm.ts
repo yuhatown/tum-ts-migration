@@ -22,5 +22,5 @@ export async function UpdateUser(userId: number, userName: string) {
 }
 
 export async function DeleteUser(userId: number, userActive: boolean) {
-    await userRepository.update(userId, { is_active: userActive })
+    await userRepository.update(userId, { isActive: userActive })
 }

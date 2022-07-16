@@ -3,10 +3,20 @@ import { Entity, Column } from "typeorm"
 @Entity({ name: 'token_price'})
 export class TokenPrice {
 
-    @Column()
-    token_id!: number
+    @Column({
+        name: 'token_id',
+        type: 'int',
+        nullable: false
+    })
+    tokenId!: number
 
-    @Column()
-    price!: number
+    @Column({
+        name: 'price',
+        type: 'decimal',
+        precision: 36,
+        scale: 18,
+        nullable: false
+      })
+    price!: string
 }
 

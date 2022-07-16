@@ -2,7 +2,7 @@ import { GetTokenPriceList, RegisterTokenPrice } from "./token.price.orm";
 
 interface TokenPriceRegisterTable {
     tokenId: number,
-    tokenPrice: number,
+    tokenPrice: string,
 }
 
 export class TokenPriceListGet {
@@ -12,12 +12,12 @@ export class TokenPriceListGet {
 }
 export class TokenPriceRegister implements TokenPriceRegisterTable {
     tokenId: number
-    tokenPrice: number
-    constructor(tokenId: number, tokenPrice: number){
+    tokenPrice: string
+    constructor(tokenId: number, tokenPrice: string){
         this.tokenId = tokenId
         this.tokenPrice = tokenPrice
     }
-    register(tokenId: number, tokenPrice: number) {
+    register(tokenId: number, tokenPrice: string) {
         RegisterTokenPrice(tokenId, tokenPrice)
     }
 }
