@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { UserWallet } from "../../user/entity/user.wallet.entity";
+import { TokenPrice } from "./token.price.entity";
 
 @Entity()
 export class Token {
@@ -15,4 +17,10 @@ export class Token {
         length: 20
     })
     name!: string
+
+    @OneToMany(() => UserWallet, (userWallet) => userWallet.token)
+    userWallet!: UserWallet[]
+
+    @OneToMany(() => TokenPrice, (tokenPrice) => tokenPrice.token)
+    tokenPrice!: TokenPrice
 }
