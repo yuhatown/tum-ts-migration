@@ -1,12 +1,11 @@
-import { Entity, Column } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({ name: 'map_user_wallet' })
 export class UserWalletMap {
 
-    @Column({
+    @PrimaryGeneratedColumn({
         name: 'id',
-        type: 'int',
-        nullable: false
+        type: 'int'
     })
     id!: number
 

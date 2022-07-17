@@ -1,7 +1,13 @@
-import { Entity, Column } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({ name: 'token_price'})
 export class TokenPrice {
+
+    @PrimaryGeneratedColumn({
+        name: 'id',
+        type: 'int'
+    })
+    id!: number
 
     @Column({
         name: 'token_id',

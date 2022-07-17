@@ -1,11 +1,13 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "./model/user/user.entity"
-import { UserWallet } from "./model/user/user.wallet.entity"
-import { UserWalletMap } from "./model/user/user.wallet.map.entity"
-import { Token } from "./model/token/token.entity"
-import { TokenPrice } from "./model/token/token.price.entity"
 import * as dotenv from "dotenv";
+import { Token } from "./model/token/entity/token.entity";
+import { TokenPrice } from "./model/token/entity/token.price.entity";
+import { User } from "./model/user/entity/user.entity";
+import { UserWallet } from "./model/user/entity/user.wallet.entity";
+import { UserWalletMap } from "./model/user/entity/user.wallet.map.entity";
+import { WalletStaked } from "./model/user.staked/entity/user.wallet.staked.entity";
+
 dotenv.config();
 
 export const TumDataSource = new DataSource({
@@ -17,7 +19,7 @@ export const TumDataSource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: false,
     logging: false,
-    entities: [User, UserWallet, UserWalletMap, Token, TokenPrice],
+    entities: [Token, TokenPrice, User, UserWallet, UserWalletMap, WalletStaked],
     // migrations: [],
     // subscribers: [],
 })
