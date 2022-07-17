@@ -1,30 +1,17 @@
 import * as express from "express";
-import { TokenDelete, TokenListGet, TokenRegister, TokenUpdate } from "../model/token/token.service";
-import axios from "axios";
-import { tokenInfoConfig } from "../config";
+import { TokenDelete, TokenListGet, TokenUpdate } from "../model/token/token.service";
+import { axiosTokenInfo } from "../model/token/token.axios.service";
 
 const router = express.Router();
 
 router.get("/", (_req, res) => {
-  const tokenList = new TokenListGet();
+  const tokenList = new TokenListGet;
   tokenList.get();
   res.status(200).send();
 });
 
 router.get("/coingecko/all", (_req, res) => {
-    axios(tokenInfoConfig)
-    .then(function (response) {
-        const token = response.data;
-        let i = 0;
-      do {
-        const tokenName = new TokenRegister(token[i].id);
-        tokenName.register(token[i].id)
-        i++;
-      } while (i <= 10);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axiosTokenInfo();
     res.status(200).send();
 });
 
@@ -44,4 +31,3 @@ router.post("/delete/:id", (req, res) => {
 })
 
 export = router;
-
