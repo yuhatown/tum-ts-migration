@@ -1,7 +1,7 @@
 import { TumDataSource  } from "../../data-source";
-import { UserWallet } from "../entity/user.wallet.entity";
+import { UserWallet } from "../user/entity/user.wallet.entity";
 import { nearStaked } from "./chain/user.wallet.staked.near.service";
-import { WalletStaked } from "../entity/user.wallet.staked.entity";
+import { WalletStaked } from "./entity/user.wallet.staked.entity";
 
 const userWalletRepository = TumDataSource.getRepository(UserWallet);
 const userWalletStakedRepositroy = TumDataSource.getRepository(WalletStaked);
