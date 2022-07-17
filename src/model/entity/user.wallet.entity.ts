@@ -1,12 +1,11 @@
-import { Entity, Column } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({ name: 'wallet' })
 export class UserWallet {
 
-    @Column({
+    @PrimaryGeneratedColumn({
         name: 'id',
-        type: 'int',
-        nullable: false
+        type: 'int'
     })
     id!: number
 
@@ -19,7 +18,7 @@ export class UserWallet {
 
     @Column({
         name: 'address',
-        type: 'int',
+        type: 'varchar',
         nullable: false,
         length: 50
     })

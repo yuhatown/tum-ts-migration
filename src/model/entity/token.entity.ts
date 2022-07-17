@@ -1,11 +1,10 @@
-import { Entity, Column } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Token {
-    @Column({
+    @PrimaryGeneratedColumn({
         name: 'id',
-        type: 'int',
-        nullable: false
+        type: 'int'
     })
     id!: number
 

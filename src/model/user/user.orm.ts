@@ -1,5 +1,5 @@
 import { TumDataSource } from "../../data-source"
-import { User } from "./user.entity"
+import { User } from "../entity/user.entity"
 
 const userRepository = TumDataSource.getRepository(User);
 
@@ -14,7 +14,7 @@ export async function RegisterUser(userName: string) {
         name: userName
     })
     await userRepository.save(newUser)
-    console.log("Saved a new user with id: " + newUser.id)
+    console.log("Saved a new user with name: " + newUser.name)
 }
 
 export async function UpdateUser(userId: number, userName: string) {

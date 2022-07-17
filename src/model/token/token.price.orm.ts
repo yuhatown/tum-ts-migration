@@ -1,5 +1,5 @@
 import { TumDataSource  } from "../../data-source";
-import { TokenPrice } from "./token.price.entity";
+import { TokenPrice } from "../entity/token.price.entity";
 
 const userRepository = TumDataSource.getRepository(TokenPrice);
 
