@@ -1,3 +1,5 @@
+import { User } from "./entity/user.entity"
+import { UserWallet } from "./entity/user.wallet.entity"
 import { DeleteUserWalletMap, GetUserWalletMap, RegisterUserWalletMap } from "./user.wallet.map.orm"
 
 
@@ -6,8 +8,8 @@ interface UserWalletMapGetTable {
 }
 
 interface UserWalletMapRegisterTable {
-    userId: number,
-    walletId: number
+    userId: User,
+    walletId: UserWallet
 }
 
 interface UserWalletMapDeleteTable {
@@ -26,14 +28,14 @@ export class UserWalletMapGet implements UserWalletMapGetTable {
 }
 
 export class UserWalletMapRegister implements UserWalletMapRegisterTable {
-    userId: number
-    walletId: number
-    constructor(userId: number, walletId: number) {
+    userId: User
+    walletId: UserWallet
+    constructor(userId: User, walletId: UserWallet) {
         this.userId = userId
         this.walletId = walletId
     }
 
-    register(userId: number, walletId: number) {
+    register(userId: User, walletId: UserWallet) {
         RegisterUserWalletMap(userId, walletId)
     }
 }

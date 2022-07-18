@@ -1,4 +1,5 @@
 import * as nearAPI from "near-api-js";
+import { UserWalletMap } from "../../user/entity/user.wallet.map.entity";
 import { RegisterUsetWalletStaked } from "../user.wallet.staked.orm";
 const { connect } = nearAPI;
 
@@ -29,7 +30,7 @@ const config: Config = {
     headers: {"allthatnode": "UcgyA9G4MXBAkgw39NkGoPI06xtxzfM5"}
 }
 
-export const nearStaked = async (nearAccount: string) => {
+export const nearStaked = async (nearAccount: string, mapId: UserWalletMap) => {
   try {
     const near = await connect(config);
 
@@ -39,7 +40,7 @@ export const nearStaked = async (nearAccount: string) => {
       account_id: nearAccount,
     });
     console.log(nearNodeInfo.locked.slice(0,7));
-    RegisterUsetWalletStaked(nearNodeInfo.locked.slice(0,7), 1)
+    RegisterUsetWalletStaked(nearNodeInfo.locked.slice(0,7), mapId)
 
   } catch (error) {
     console.error(error);

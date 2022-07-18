@@ -20,13 +20,6 @@ export class WalletStaked {
       })
     staked!: string
 
-    // @Column({
-    //     name: 'map_user_wallet_id',
-    //     type: 'int',
-    //     nullable: false
-    // })
-    // mapId!: number
-
     @OneToOne(() => UserWalletMap)
     @JoinColumn({name: "map_user_wallet_id", referencedColumnName: "id"})
     userWalletMap!: UserWalletMap

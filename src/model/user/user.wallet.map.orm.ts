@@ -1,4 +1,6 @@
 import { TumDataSource } from "../../data-source";
+import { User } from "./entity/user.entity";
+import { UserWallet } from "./entity/user.wallet.entity";
 import { UserWalletMap } from "./entity/user.wallet.map.entity";
 
 const userRepository = TumDataSource.getRepository(UserWalletMap);
@@ -8,10 +10,10 @@ export async function GetUserWalletMap(userId: number){
     console.log(userWalletList);
 }
 
-export async function RegisterUserWalletMap(userId: number, walletId: number) {
+export async function RegisterUserWalletMap(userId: User, walletId: UserWallet) {
     const newUserWalletMap = userRepository.create({
-        userId: userId,
-        walletId: walletId,
+        user: userId,
+        userWallet: walletId,
       });
       await userRepository.save(newUserWalletMap);
       console.log("Saved a new user with id: " + newUserWalletMap.id);

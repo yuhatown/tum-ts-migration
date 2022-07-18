@@ -11,9 +11,8 @@ router.get('/info', (req, res) => {
     res.status(200).send();
 })
 
-router.post('/register/:id', (req, res) => {
-    const userId = parseInt(req.params.id)
-    const walletId = req.body.walletId
+router.post('/register', (req, res) => {
+    const { userId, walletId } = req.body
     const userMap = new UserWalletMapRegister(userId, walletId)
     userMap.register(userId, walletId)
     res.status(200).send();
