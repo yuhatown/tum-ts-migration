@@ -19,13 +19,6 @@ export class TokenPrice {
       })
     price!: string
 
-    // @Column({
-    //     name: 'token_id',
-    //     type: 'int',
-    //     nullable: false
-    // })
-    // tokenId!: number
-
     @ManyToOne(() => Token, (token) => token.tokenPrice)
     @JoinColumn({ name: "token_id", referencedColumnName: "id" })
     token!: Token

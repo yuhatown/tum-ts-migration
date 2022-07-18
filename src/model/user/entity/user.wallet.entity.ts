@@ -19,13 +19,6 @@ export class UserWallet {
     })
     address!: string
 
-    // @Column({
-    //     name: 'token_id',
-    //     type: 'int',
-    //     nullable: false
-    // })
-    // tokenId!: number
-
     @ManyToOne(() => Token, (token) => token.userWallet)
     @JoinColumn({ name: "token_id", referencedColumnName: "id" })
     token!: Token

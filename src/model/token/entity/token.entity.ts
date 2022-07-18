@@ -22,5 +22,5 @@ export class Token {
     userWallet!: UserWallet[]
 
     @OneToMany(() => TokenPrice, (tokenPrice) => tokenPrice.token)
-    tokenPrice!: TokenPrice
+    tokenPrice!: TokenPrice[]
 }

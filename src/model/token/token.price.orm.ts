@@ -1,18 +1,17 @@
 import { TumDataSource  } from "../../data-source";
+import { Token } from "./entity/token.entity";
 import { TokenPrice } from "./entity/token.price.entity";
 
-const userRepository = TumDataSource.getRepository(TokenPrice);
-
 export async function GetTokenPriceList() {
-    const tokenPriceList = await userRepository.find()
+    const tokenPriceList = await TumDataSource.manager.find(TokenPrice)
     console.log(tokenPriceList)
 }
 
-export async function RegisterTokenPrice(tokenId: number, tokenPrice: string) {
-    const newTokenPrice = userRepository.create({
-        tokenId: tokenId,
+export async function RegisterTokenPrice(tokenId: Token, tokenPrice: string) {
+    const newTokenPrice = TumDataSource.manager.create(TokenPrice, {
+        token: tokenId,
         price: tokenPrice
     })
-    await userRepository.save(newTokenPrice)
+    await TumDataSource.manager.save(newTokenPrice)
     console.log("Saved a new token with price: " + newTokenPrice.price);
 }
