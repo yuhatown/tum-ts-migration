@@ -1,24 +1,29 @@
 import { TumDataSource } from "../../data-source";
-import { User } from "./entity/user.entity";
-import { UserWallet } from "./entity/user.wallet.entity";
 import { UserWalletMap } from "./entity/user.wallet.map.entity";
 
-const userRepository = TumDataSource.getRepository(UserWalletMap);
-
-export async function GetUserWalletMap(userId: number){
-    const userWalletList = await userRepository.find({where: {id: userId}})   
+export async function GetUserWalletMap(userId: UserWalletMap){
+    const userWalletRepository = TumDataSource.manager.getRepository(UserWalletMap)
+    const userWalletList = await userWalletRepository.find({
+        relations: {
+            user: true,
+            userWallet: true
+        },
+        where: {
+            user: userId
+        }
+    }) 
     console.log(userWalletList);
 }
 
-export async function RegisterUserWalletMap(userId: User, walletId: UserWallet) {
-    const newUserWalletMap = userRepository.create({
+export async function RegisterUserWalletMap(userId: UserWalletMap, walletId: UserWalletMap) {
+    const newUserWalletMap = TumDataSource.manager.create(UserWalletMap, {
         user: userId,
         userWallet: walletId,
       });
-      await userRepository.save(newUserWalletMap);
+      await TumDataSource.manager.save(newUserWalletMap);
       console.log("Saved a new user with id: " + newUserWalletMap.id);
 }
 
 export async function DeleteUserWalletMap(mapId: number) {
-    await userRepository.delete({ id: mapId });
+    await TumDataSource.manager.delete(UserWalletMap, { id: mapId });
 }

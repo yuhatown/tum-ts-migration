@@ -5,7 +5,7 @@ import { UserWalletMapDelete, UserWalletMapGet, UserWalletMapRegister } from "..
 const router = express.Router();
 
 router.get('/info', (req, res) => {
-    const userId = req.body.id;
+    const userId = req.body.id
     const userMap = new UserWalletMapGet(userId)
     userMap.get(userId)
     res.status(200).send();
@@ -18,8 +18,8 @@ router.post('/register', (req, res) => {
     res.status(200).send();
 })
 
-router.post('/delete/:id', (req, res) => {
-    const mapId = parseInt(req.params.id)
+router.post('/delete', (req, res) => {
+    const mapId = req.body.id
     const userMap = new UserWalletMapDelete(mapId)
     userMap.delete(mapId)
     res.status(200).send();

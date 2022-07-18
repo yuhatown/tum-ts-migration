@@ -6,15 +6,14 @@ export async function RegisterUserWallet(
   relationToken: string,
   userAddress: string
 ) {
-  // relation - tokenId에 들어갈 것
   const tokenIdRelation = TumDataSource.manager.create(Token, {
     name: relationToken,
   })
   await TumDataSource.manager.save(tokenIdRelation)
 
-  const newUserWallet = TumDataSource.manager.create( UserWallet, {
+  const newUserWallet = TumDataSource.manager.create(UserWallet, {
     address: userAddress,
-    token: tokenIdRelation, // tokenId 들어갈 곳
+    token: tokenIdRelation,
   })
   await TumDataSource.manager.save(newUserWallet)
   console.log("Saved a new user with id: " + newUserWallet.id);
