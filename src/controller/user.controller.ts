@@ -10,9 +10,9 @@ router.get('/:id', (req, res) => {
     res.status(200).send();
 })
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     const userName = req.body.name;
-    const user = new UserRegister(userName)
+    const user = new UserRegister(userName);
     user.register(userName);
     res.status(200).send();
 })

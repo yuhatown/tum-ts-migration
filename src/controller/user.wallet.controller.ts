@@ -3,10 +3,10 @@ import { UserWalletDelete, UserWalletRegister, UserWalletUpdate } from "../model
 
 const router = express.Router();
 
-router.post('/register', (req, res) => {
-    const { tokenId, userWallet } = req.body;
-    const wallet = new UserWalletRegister(tokenId, userWallet)
-    wallet.register(tokenId, userWallet)
+router.post('/register', async (req, res) => {
+    const { relationToken, userWallet } = req.body;
+    const wallet = new UserWalletRegister(relationToken, userWallet)
+    wallet.register(relationToken, userWallet)
     res.status(200).send();
 })
 

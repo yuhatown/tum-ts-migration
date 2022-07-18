@@ -1,31 +1,36 @@
 import { TumDataSource } from "../../data-source";
+import { Token } from "../token/entity/token.entity";
 import { UserWallet } from "./entity/user.wallet.entity";
 
-const userRepository = TumDataSource.getRepository(UserWallet);
-
 export async function RegisterUserWallet(
-  userTokenId: number,
+  relationToken: string,
   userAddress: string
 ) {
-  const newUserWallet = userRepository.create({
-    tokenId: userTokenId,
+  // relation - tokenId에 들어갈 것
+  const tokenIdRelation = TumDataSource.manager.create(Token, {
+    name: relationToken,
+  })
+  await TumDataSource.manager.save(tokenIdRelation)
+
+  const newUserWallet = TumDataSource.manager.create( UserWallet, {
     address: userAddress,
-  });
-  await userRepository.save(newUserWallet);
+    token: tokenIdRelation, // tokenId 들어갈 곳
+  })
+  await TumDataSource.manager.save(newUserWallet)
   console.log("Saved a new user with id: " + newUserWallet.id);
 }
 
 export async function UpdateUserWallet(
   userWalletId: number,
-  userTokenId: number,
+  userTokenId: Token,
   userAddress: string
 ) {
-  await userRepository.update(userWalletId, {
-    tokenId: userTokenId,
-    address: userAddress,
-  });
+  await TumDataSource.manager.update(UserWallet, userWalletId, {
+    token: userTokenId,
+    address: userAddress
+  })
 }
 
 export async function DeleteUserWallet(userWalletId: number) {
-  await userRepository.delete({ id: userWalletId });
+  await TumDataSource.manager.delete(UserWallet, userWalletId)
 }

@@ -1,13 +1,14 @@
+import { Token } from '../token/entity/token.entity'
 import { DeleteUserWallet, RegisterUserWallet, UpdateUserWallet } from './user.wallet.orm'
 
 interface UserWalletRegisterTable {
-    tokenId: number,
+    relationToken: string
     userWallet: string
 }
 
 interface UserWalletUpdateTable {
     walletId: number,
-    tokenId: number,
+    tokenId: Token,
     userWallet: string
 }
 
@@ -16,29 +17,29 @@ interface UserWalletDeleteTable {
 }
 
 export class UserWalletRegister implements UserWalletRegisterTable {
-    tokenId: number
     userWallet: string
-    constructor(tokenId: number, userWallet: string) {
-        this.tokenId = tokenId
+    relationToken: string
+    constructor(relationToken: string, userWallet: string) {
+        this.relationToken = relationToken
         this.userWallet = userWallet
     }
 
-    register(tokenId: number, userWallet: string) {
-        RegisterUserWallet(tokenId, userWallet)
+    register(relationToken: string, userWallet: string) {
+        RegisterUserWallet(relationToken, userWallet)
     }
 }
 
 export class UserWalletUpdate implements UserWalletUpdateTable {
     walletId: number
-    tokenId: number
+    tokenId: Token
     userWallet: string
-    constructor(walletId: number, tokenId: number, userWallet: string) {
+    constructor(walletId: number, tokenId: Token, userWallet: string) {
         this.walletId = walletId
         this.tokenId = tokenId
         this.userWallet = userWallet
     }
 
-    update(walletId: number, tokenId: number, userWallet: string) {
+    update(walletId: number, tokenId: Token, userWallet: string) {
         UpdateUserWallet(walletId, tokenId, userWallet)
     }
 }
