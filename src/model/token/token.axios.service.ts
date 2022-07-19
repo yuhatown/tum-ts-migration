@@ -2,7 +2,6 @@ import axios from "axios";
 import { tokenInfoConfig } from "../../config";
 import { TokenRegister } from "../token/token.service";
 
-
 export const axiosTokenInfo = () => {
     axios(tokenInfoConfig)
     .then(function (response) {

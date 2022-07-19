@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
+import { TumEach } from "../../tum/entity/tum.each.entity"
 import { Token } from "./token.entity"
 
 @Entity({ name: 'token_price'})
@@ -22,5 +23,8 @@ export class TokenPrice {
     @ManyToOne(() => Token, (token) => token.tokenPrice)
     @JoinColumn({ name: "token_id", referencedColumnName: "id" })
     token!: Token
+
+    @OneToMany(() => TumEach, (tumEach) => tumEach.tokenPrice)
+    tumEach!: TumEach[]
 }
 

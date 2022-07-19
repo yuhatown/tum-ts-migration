@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany, ManyToOne } from "typeorm"
+import { Token } from "../../token/entity/token.entity"
+import { TumEach } from "../../tum/entity/tum.each.entity"
 import { UserWalletMap } from "../../user/entity/user.wallet.map.entity"
 
 
@@ -23,6 +25,13 @@ export class WalletStaked {
     @OneToOne(() => UserWalletMap)
     @JoinColumn({name: "map_user_wallet_id", referencedColumnName: "id"})
     userWalletMap!: UserWalletMap
+
+    @ManyToOne(() => Token, (token) => token.walletStaked)
+    @JoinColumn({ name: "token_id", referencedColumnName: "id"})
+    token!: Token
+
+    @OneToMany(() => TumEach, (tumEach) => tumEach.walletStaked)
+    tumEach!: TumEach[]
 }
 
 
