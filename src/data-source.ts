@@ -8,6 +8,7 @@ import { UserWallet } from "./model/user/entity/user.wallet.entity";
 import { UserWalletMap } from "./model/user/entity/user.wallet.map.entity";
 import { WalletStaked } from "./model/staked/entity/user.wallet.staked.entity";
 import { TumEach } from "./model/tum/entity/tum.each.entity";
+import { Tum } from "./model/tum/entity/tum.entity";
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ export const TumDataSource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: false,
     logging: false,
-    entities: [Token, TokenPrice, User, UserWallet, UserWalletMap, WalletStaked, TumEach],
+    entities: [Token, TokenPrice, User, UserWallet, UserWalletMap, WalletStaked, TumEach, Tum],
     // migrations: [],
     // subscribers: [],
 })

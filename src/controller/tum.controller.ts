@@ -1,10 +1,12 @@
 import * as express from "express";
+import { WalletStaked } from "../model/tum/tum.service";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    
+router.get("/collect", (req, res) => {
+    const userId = req.body.id
+    const tum = new WalletStaked(userId)
+    res.status(200).send()
 })
-
 
 export = router;

@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Tum } from "../../tum/entity/tum.entity";
 import { UserWalletMap } from "./user.wallet.map.entity";
 @Entity({ name: 'user'})
 export class User {
@@ -26,4 +27,7 @@ export class User {
 
     @OneToMany(() => UserWalletMap, (userWalletMap) => userWalletMap.user)
     userWalletMap!: UserWalletMap[]
+
+    @OneToMany(() => Tum, (tum) => tum.user)
+    tum!: Tum
 }

@@ -22,16 +22,16 @@ export async function GetInfo(UserWalletMap: UserWalletMap) {
         }
     })
 
-    const tokenTumEach: string = (parseInt(tokenStaked[0].staked) * parseInt(tokenPrice[0].price)).toString();
+    const tokenTumEach: string = await (parseInt(tokenStaked[0].staked) * parseInt(tokenPrice[0].price)).toString();
 
     RegisterWalletTumEach(tokenPrice[0].id, tokenStaked[0].id, tokenTumEach)
 }
 
 export async function RegisterWalletTumEach(priceId: any, stakedId: any, tokenTumEach: string) {
-    const nearWalletTumEach = TumDataSource.manager.create(TumEach, {
+    const walletTumEach = TumDataSource.manager.create(TumEach, {
         tokenPrice: priceId,
         walletStaked: stakedId,
         valueStaked: tokenTumEach
     })
-    await TumDataSource.manager.save(nearWalletTumEach);  
+    await TumDataSource.manager.save(walletTumEach);  
 }
