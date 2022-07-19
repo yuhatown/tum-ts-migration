@@ -1,5 +1,5 @@
 import * as express from "express";
-import { WalletAddressGet } from "../model/user.staked/user.wallet.staked.service";
+import { WalletAddressGet } from "../model/staked/user.wallet.staked.service";
 
 const router = express.Router();
 
