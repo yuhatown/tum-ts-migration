@@ -1,5 +1,5 @@
 import * as express from "express";
-import { InfoGet} from "../model/tum/tum.each.service";
+import { InfoGet } from "../model/tum/tum.each.service";
 
 const router = express.Router();
 
