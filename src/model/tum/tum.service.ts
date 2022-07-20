@@ -22,7 +22,7 @@ export class WalletStaked implements walletStakedCollect{
     }
 }
 
-export class tumRegister implements tumRegisterTable {
+export class UserTum implements tumRegisterTable {
     valueUsd: string
     valueKrw: string
     user: User
