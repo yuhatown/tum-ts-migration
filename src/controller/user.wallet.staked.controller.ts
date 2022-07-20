@@ -4,9 +4,9 @@ import { WalletAddressGet } from "../model/staked/user.wallet.staked.service";
 const router = express.Router();
 
 router.get("/near", async (req, res) => {
-    const userId = req.body.id
-    const walletAddress = new WalletAddressGet(userId);
-    walletAddress.get(userId);
+    const { userId, walletId } = req.body
+    const walletAddress = new WalletAddressGet(userId, walletId);
+    walletAddress.get(userId, walletId);
     res.status(200).send();
 })
 
