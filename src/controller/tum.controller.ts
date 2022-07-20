@@ -6,6 +6,7 @@ const router = express.Router();
 router.get("/collect", (req, res) => {
     const userId = req.body.id
     const tum = new WalletStaked(userId)
+    tum.get(userId)
     res.status(200).send()
 })
 
