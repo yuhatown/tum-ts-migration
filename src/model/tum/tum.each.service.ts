@@ -1,10 +1,9 @@
 import { WalletStaked } from "../staked/entity/user.wallet.staked.entity";
 import { TokenPrice } from "../token/entity/token.price.entity";
-import { UserWalletMap } from "../user/entity/user.wallet.map.entity";
 import { GetInfo, RegisterWalletTumEach } from "./tum.each.orm";
 
 interface InfoGetTable {
-    userWalletMap: UserWalletMap
+    tokenId: number
 }
 
 interface WalletTumEachReigsterTable {
@@ -14,12 +13,12 @@ interface WalletTumEachReigsterTable {
 }
 
 export class InfoGet implements InfoGetTable {
-    userWalletMap: UserWalletMap;
-    constructor(userWallerMap: UserWalletMap) {
-        this.userWalletMap = userWallerMap
+    tokenId: number
+    constructor(tokenId: number) {
+        this.tokenId = tokenId
     }
-    get(userWallerMap: UserWalletMap) {
-        GetInfo(userWallerMap)
+    get(tokenId: number) {
+        GetInfo(tokenId)
     }
 }
 

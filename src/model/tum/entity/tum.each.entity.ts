@@ -19,12 +19,6 @@ export class TumEach {
   })
   valueStaked!: string
 
-  @Column({
-    name: "created_at",
-    type: "timestamp"
-  })
-  createdAt!: number
-
   @ManyToOne(() => WalletStaked, (walletStaked) => walletStaked.tumEach)
   @JoinColumn({ name: "staked_id", referencedColumnName: "id" })
   walletStaked!: WalletStaked
