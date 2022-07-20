@@ -3,39 +3,46 @@ import { WalletStaked } from "../staked/entity/user.wallet.staked.entity";
 import { TokenPrice } from "../token/entity/token.price.entity";
 import { TumEach } from "./entity/tum.each.entity";
 
-export async function GetInfo(tokenId: number) {
+export async function GetInfo(stakedTokenId: WalletStaked, priceTokenId: TokenPrice) {
     
     const walletInfo = TumDataSource.manager.getRepository(WalletStaked)
     const tokenStaked = await walletInfo.find({
-        order: {
-            id: "DESC",
-        },
-        take: 1,
         relations: {
             userWalletMap: true,
             token: true
         },
         where: {
-            token: { id: tokenId }
+            token: stakedTokenId
         } 
     })
+    console.log(tokenStaked);
+    // const stakedId = Math.max.apply(null, tokenStaked.map(a => a.id))
+    // console.log(stakedId);
+    
 
     const priceRepository = TumDataSource.manager.getRepository(TokenPrice)
     const tokenPrice = await priceRepository.find({
-        order: {
-            id: "DESC",
-        },
-        take: 1,
         relations: {
             token: true
         },
         where: {
-            token: { id: tokenId }
+            token: priceTokenId
         }
     })
+    console.log(tokenPrice);
 
-    const tokenTumEach: string = await (parseInt(tokenStaked[0].staked) * parseInt(tokenPrice[0].price)).toString();
-    RegisterWalletTumEach(tokenPrice[0].token.id, tokenStaked[0].userWalletMap.id, tokenTumEach)
+    // for(let i = 0; i < tokenPrice.length; i++){
+    //     if(tokenPrice[i].id === Math.max.apply(null, tokenPrice.map(a => a.id))) {
+
+    //     }
+    // }
+    // console.log(Math.max.apply(null, tokenPrice.map(a => a.id)));
+
+
+    // tumEach 계산하기
+    // const tokenTumEach: string = await (parseInt(tokenStaked[0].staked) * parseInt(tokenPrice[0].price)).toString();
+
+    // RegisterWalletTumEach(tokenPrice[0].id, tokenStaked[0].id, tokenTumEach)
 }
 
 export async function RegisterWalletTumEach(priceId: any, stakedId: any, tokenTumEach: string) {
