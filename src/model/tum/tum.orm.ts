@@ -2,7 +2,6 @@ import { TumDataSource } from "../../data-source"
 import { User } from "../user/entity/user.entity"
 import { TumEach } from "./entity/tum.each.entity"
 import { Tum } from "./entity/tum.entity"
-import { UserTum } from "./tum.service"
 
 export async function CollectWalletStaked(userId: User) {
     const tumEachRepository = TumDataSource.manager.getRepository(TumEach)
@@ -74,7 +73,7 @@ export async function CollectWalletStaked(userId: User) {
         }
     } 
     const valueKrw = (tumTotal * 1300).toString()
-    UserTum.register(tumTotal, valueKrw, userId)
+    RegisterTum(tumTotal, valueKrw, userId)
 }
 
 export async function RegisterTum(valueUsd: string, valueKrw: string, user: User) {
