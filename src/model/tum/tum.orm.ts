@@ -74,7 +74,7 @@ export async function CollectWalletStaked(userId: User) {
         }
     } 
     const valueKrw = (tumTotal * 1300).toString()
-    UserTum.register(tumTotal, valueKrw, userId)
+    RegisterTum(tumTotal, valueKrw, userId)
 }
 
 export async function RegisterTum(valueUsd: string, valueKrw: string, user: User) {
