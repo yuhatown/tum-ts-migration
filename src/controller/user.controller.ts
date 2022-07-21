@@ -3,7 +3,7 @@ import { UserDelete, UserGet, UserRegister, UserUpdate } from "../model/user/use
 
 const router = express.Router();
 
-router.get('/:id', (req, res) => {
+router.get('/list/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     const userList = new UserGet(userId);
     userList.get(userId);

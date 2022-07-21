@@ -1,17 +1,17 @@
 import * as express from "express";
 import { TokenDelete, TokenListGet, TokenUpdate } from "../model/token/token.service";
-import { axiosTokenInfo } from "../model/token/token.axios.service";
+import { axiosTokenInfoRegister } from "../model/token/token.axios.service";
 
 const router = express.Router();
 
-router.get("/", (_req, res) => {
+router.get("/list", (_req, res) => {
   const tokenList = new TokenListGet;
   tokenList.get();
   res.status(201).send();
 });
 
-router.get("/coingecko/all", (_req, res) => {
-    axiosTokenInfo();
+router.post("/register/all", (_req, res) => {
+    axiosTokenInfoRegister();
     res.status(201).send();
 });
 

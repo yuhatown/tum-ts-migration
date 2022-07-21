@@ -4,13 +4,13 @@ import { tokenPriceInfoRegister } from "../model/token/token.price.axios.service
 
 const router = express.Router();
 
-router.get("/", (_req, res) => {
+router.get("/list", (_req, res) => {
   const tokenPriceList = new TokenPriceListGet();
   tokenPriceList.get();
   res.status(201).send();
 });
 
-router.post("/coingecko/all", (_req, res) => {
+router.post("/register/all", (_req, res) => {
   tokenPriceInfoRegister();
   res.status(201).send();
 });
