@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
     res.status(201).send();
 })
 
-router.delete('/delete', (req, res) => {
+router.delete('/', (req, res) => {
     const mapId = req.body.id
     const userMap = new UserWalletMapDelete(mapId)
     userMap.delete(mapId)

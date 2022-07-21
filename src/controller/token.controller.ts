@@ -15,7 +15,7 @@ router.get("/register/all", (_req, res) => {
     res.status(201).send();
 });
 
-router.put("/update/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const tokenId = parseInt(req.params.id);
   const tokenName = req.body.name;
   const token = new TokenUpdate(tokenId, tokenName);
@@ -23,7 +23,7 @@ router.put("/update/:id", (req, res) => {
   res.status(201).send();
 })
 
-router.delete("/delete/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const tokenId = parseInt(req.params.id);
   const token = new TokenDelete(tokenId);
   token.delete(tokenId);
