@@ -26,6 +26,6 @@ app.use("/token/price", tokenPriceRouter);
 app.use("/user/tum", userTumRouter);
 app.use("/user/tum/each", userTumEachRouter);
 
-app.listen(process.env.DB_PORT, () => {
-  console.log(`connected! http://localhost:${process.env.DB_PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`connected! http://localhost:${process.env.PORT}`);
 });
