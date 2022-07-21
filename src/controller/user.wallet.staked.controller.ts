@@ -7,7 +7,7 @@ router.get("/near", async (req, res) => {
     const { userId, walletId } = req.body
     const walletAddress = new WalletAddressGet(userId, walletId);
     walletAddress.get(userId, walletId);
-    res.status(200).send();
+    res.status(201).send();
 })
 
 export = router;

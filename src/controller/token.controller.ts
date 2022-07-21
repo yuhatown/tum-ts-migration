@@ -7,12 +7,12 @@ const router = express.Router();
 router.get("/", (_req, res) => {
   const tokenList = new TokenListGet;
   tokenList.get();
-  res.status(200).send();
+  res.status(201).send();
 });
 
 router.get("/coingecko/all", (_req, res) => {
     axiosTokenInfo();
-    res.status(200).send();
+    res.status(201).send();
 });
 
 router.post("/update/:id", (req, res) => {
@@ -20,14 +20,14 @@ router.post("/update/:id", (req, res) => {
   const tokenName = req.body.name;
   const token = new TokenUpdate(tokenId, tokenName);
   token.update(tokenId, tokenName)
-  res.status(200).send();
+  res.status(201).send();
 })
 
 router.post("/delete/:id", (req, res) => {
   const tokenId = parseInt(req.params.id);
   const token = new TokenDelete(tokenId);
   token.delete(tokenId);
-  res.status(200).send();
+  res.status(201).send();
 })
 
 export = router;

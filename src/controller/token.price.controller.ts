@@ -7,12 +7,12 @@ const router = express.Router();
 router.get("/", (_req, res) => {
   const tokenPriceList = new TokenPriceListGet();
   tokenPriceList.get();
-  res.status(200).send();
+  res.status(201).send();
 });
 
 router.get("/coingecko/all", (_req, res) => {
   tokenPriceInfo();
-  res.status(200).send();
+  res.status(201).send();
 });
 
 export = router;

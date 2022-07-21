@@ -7,7 +7,7 @@ router.post('/register', async (req, res) => {
     const { relationToken, userWallet } = req.body;
     const wallet = new UserWalletRegister(relationToken, userWallet)
     wallet.register(relationToken, userWallet)
-    res.status(200).send();
+    res.status(201).send();
 })
 
 router.post('/update/:id', (req, res) => {
@@ -15,14 +15,14 @@ router.post('/update/:id', (req, res) => {
     const { tokenId, userWallet } = req.body;
     const wallet = new UserWalletUpdate(walletId, tokenId, userWallet)
     wallet.update(walletId, tokenId, userWallet)
-    res.status(200).send();
+    res.status(201).send();
 })
 
 router.post('/delete/:id', (req, res) => {
     const walletId = parseInt(req.params.id);
     const wallet = new UserWalletDelete(walletId);
     wallet.delete(walletId);
-    res.status(200).send();
+    res.status(201).send();
 })
 
 export = router;

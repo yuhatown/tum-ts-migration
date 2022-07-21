@@ -7,7 +7,7 @@ router.get("/near", (req, res) => {
     const tokenId = req.body.id
     const info = new InfoGet(tokenId)
     info.get(tokenId)
-    res.status(200).send()
+    res.status(201).send()
 })
 
 export = router;

@@ -8,21 +8,21 @@ router.get('/info', (req, res) => {
     const userId = req.body.id
     const userMap = new UserWalletMapGet(userId)
     userMap.get(userId)
-    res.status(200).send();
+    res.status(201).send();
 })
 
 router.post('/register', (req, res) => {
     const { userId, walletId } = req.body
     const userMap = new UserWalletMapRegister(userId, walletId)
     userMap.register(userId, walletId)
-    res.status(200).send();
+    res.status(201).send();
 })
 
 router.post('/delete', (req, res) => {
     const mapId = req.body.id
     const userMap = new UserWalletMapDelete(mapId)
     userMap.delete(mapId)
-    res.status(200).send();
+    res.status(201).send();
 })
 
 export = router;
