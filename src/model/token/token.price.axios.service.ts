@@ -2,10 +2,10 @@ import axios from "axios";
 import { tokenInfoConfig } from "../../config";
 import { TokenPriceRegister } from "../token/token.price.service";
 
-export const tokenPriceInfo = () => {
-    axios(tokenInfoConfig)
-    .then(function (response) {
-    const token = response.data;
+export const tokenPriceInfo = async () => {
+    const response = await axios(tokenInfoConfig)
+    const token = response.data
+
     for (let i = 0; i < token.length; i++) {
         if (token[i].id === "ethereum") {
           const tokenId: any = i+1;
@@ -65,9 +65,5 @@ export const tokenPriceInfo = () => {
         } else {
           throw new Error("Not Found");
         }
-      }    
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      }      
 }
