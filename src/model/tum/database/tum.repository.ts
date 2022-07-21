@@ -9,7 +9,7 @@ export async function CollectWalletStaked(userId: User) {
         order: {
             id: "DESC",
         },
-        take: 11,
+        take: 1, // protocol number
         relations: {
             tokenPrice: true
         }
@@ -17,66 +17,8 @@ export async function CollectWalletStaked(userId: User) {
 
     let tumTotal: any = 0
     for (let i = 0; i < walletStakedInfo.length; i++) {
-        const priceId = walletStakedInfo[i].tokenPrice.id 
-        const valueStaked = parseInt(walletStakedInfo[i].valueStaked)
-        const stakedId = walletStakedInfo[i].id === Math.max.apply(null, walletStakedInfo.map(a => a.id))
-
-        if (priceId === 1) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 2) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 3) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 4 ) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 5) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 6) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 7) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-            
-        } else if (priceId === 8) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 9) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-
-        } else if (priceId === 10) {
-            if (stakedId) {
-                tumTotal += valueStaked
-            }
-            break
-
-        } else {
-            throw new Error("Not Found");
-        }
+        tumTotal += parseInt(walletStakedInfo[i].valueStaked)
     } 
-    console.log(tumTotal);
     
     const valueKrw = (tumTotal * 1300).toString()
     RegisterTum(tumTotal, valueKrw, userId)
