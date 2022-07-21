@@ -1,5 +1,5 @@
-import { Token } from '../token/entity/token.entity'
-import { DeleteUserWallet, RegisterUserWallet, UpdateUserWallet } from './user.wallet.orm'
+import { Token } from '../token/database/token.orm-entity'
+import { DeleteUserWallet, RegisterUserWallet, UpdateUserWallet } from './database/user.wallet.repository'
 
 interface UserWalletRegisterTable {
     relationToken: string

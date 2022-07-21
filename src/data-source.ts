@@ -1,14 +1,14 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import * as dotenv from "dotenv";
-import { Token } from "./model/token/entity/token.entity";
-import { TokenPrice } from "./model/token/entity/token.price.entity";
-import { User } from "./model/user/entity/user.entity";
-import { UserWallet } from "./model/user/entity/user.wallet.entity";
-import { UserWalletMap } from "./model/user/entity/user.wallet.map.entity";
-import { WalletStaked } from "./model/staked/entity/user.wallet.staked.entity";
-import { TumEach } from "./model/tum/entity/tum.each.entity";
-import { Tum } from "./model/tum/entity/tum.entity";
+import { Token } from "./model/token/database/token.orm-entity";
+import { TokenPrice } from "./model/token/database/token.price.orm-entity";
+import { User } from "./model/user/database/user.orm-entity";
+import { UserWallet } from "./model/user/database/user.wallet.orm-entity";
+import { UserWalletMap } from "./model/user/database/user.wallet.map.orm-entity";
+import { WalletStaked } from "./model/staked/database/user.wallet.staked.orm-entity";
+import { TumEach } from "./model/tum/database/tum.each.orm-entity";
+import { Tum } from "./model/tum/database/tum.orm-entity";
 
 dotenv.config();
 

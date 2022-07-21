@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
-import { Token } from "../../token/entity/token.entity"
-import { UserWalletMap } from "./user.wallet.map.entity"
+import { Token } from "../../token/database/token.orm-entity"
+import { UserWalletMap } from "./user.wallet.map.orm-entity"
 
 @Entity({ name: 'wallet' })
 export class UserWallet {

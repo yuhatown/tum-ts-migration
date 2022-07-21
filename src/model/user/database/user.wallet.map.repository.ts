@@ -1,5 +1,5 @@
-import { TumDataSource } from "../../data-source";
-import { UserWalletMap } from "./entity/user.wallet.map.entity";
+import { TumDataSource } from "../../../data-source";
+import { UserWalletMap } from "./user.wallet.map.orm-entity";
 
 export async function GetUserWalletMap(userId: UserWalletMap){
     const userWalletRepository = TumDataSource.manager.getRepository(UserWalletMap)

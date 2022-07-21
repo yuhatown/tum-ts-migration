@@ -1,6 +1,6 @@
 
-import { UserWalletMap } from "./entity/user.wallet.map.entity"
-import { DeleteUserWalletMap, GetUserWalletMap, RegisterUserWalletMap } from "./user.wallet.map.orm"
+import { UserWalletMap } from "./database/user.wallet.map.orm-entity"
+import { DeleteUserWalletMap, GetUserWalletMap, RegisterUserWalletMap } from "./database/user.wallet.map.repository"
 
 
 interface UserWalletMapGetTable {

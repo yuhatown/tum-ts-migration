@@ -1,4 +1,4 @@
-import { GetWalletAddress } from "./user.wallet.staked.orm"
+import { GetWalletAddress } from "./database/user.wallet.staked.repository"
 
 interface WalletAddressGetTable {
   userId: number

@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { WalletStaked } from "../../staked/entity/user.wallet.staked.entity";
-import { UserWallet } from "../../user/entity/user.wallet.entity";
-import { TokenPrice } from "./token.price.entity";
+import { WalletStaked } from "../../staked/database/user.wallet.staked.orm-entity";
+import { UserWallet } from "../../user/database/user.wallet.orm-entity";
+import { TokenPrice } from "./token.price.orm-entity";
 
 @Entity()
 export class Token {

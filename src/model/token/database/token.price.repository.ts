@@ -1,6 +1,6 @@
-import { TumDataSource  } from "../../data-source";
-import { Token } from "./entity/token.entity";
-import { TokenPrice } from "./entity/token.price.entity";
+import { TumDataSource  } from "../../../data-source";
+import { Token } from "./token.orm-entity";
+import { TokenPrice } from "./token.price.orm-entity";
 
 export async function GetTokenPriceList() {
     const tokenPriceList = await TumDataSource.manager.find(TokenPrice)

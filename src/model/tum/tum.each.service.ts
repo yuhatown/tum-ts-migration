@@ -1,6 +1,6 @@
-import { WalletStaked } from "../staked/entity/user.wallet.staked.entity";
-import { TokenPrice } from "../token/entity/token.price.entity";
-import { GetInfo, RegisterWalletTumEach } from "./tum.each.orm";
+import { WalletStaked } from "../staked/database/user.wallet.staked.orm-entity";
+import { TokenPrice } from "../token/database/token.price.orm-entity";
+import { GetInfo, RegisterWalletTumEach } from "./database/tum.each.repository";
 
 interface InfoGetTable {
     tokenId: number

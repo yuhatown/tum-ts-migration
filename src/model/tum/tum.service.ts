@@ -1,5 +1,5 @@
-import { User } from "../user/entity/user.entity";
-import { CollectWalletStaked, RegisterTum } from "./tum.orm";
+import { User } from "../user/database/user.orm-entity";
+import { CollectWalletStaked, RegisterTum } from "./database/tum.repository";
 
 
 interface walletStakedCollect {

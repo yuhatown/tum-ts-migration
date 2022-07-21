@@ -1,4 +1,4 @@
-import { DeleteUser, GetUser, RegisterUser, UpdateUser } from './user.orm'
+import { DeleteUser, GetUser, RegisterUser, UpdateUser } from './database/user.repository'
 
 interface UserGetTable {
     userId: number

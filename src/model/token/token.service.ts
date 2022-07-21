@@ -1,4 +1,4 @@
-import { DeleteToken, GetTokenList, RegisterToken, UpdateToken } from "./token.orm";
+import { DeleteToken, GetTokenList, RegisterToken, UpdateToken } from "./database/token.repository";
 
 interface TokenRegisterTable {
     tokenName: string

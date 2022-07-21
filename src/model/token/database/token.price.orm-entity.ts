@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
-import { TumEach } from "../../tum/entity/tum.each.entity"
-import { Token } from "./token.entity"
+import { TumEach } from "../../tum/database/tum.each.orm-entity"
+import { Token } from "./token.orm-entity"
 
 @Entity({ name: 'token_price'})
 export class TokenPrice {

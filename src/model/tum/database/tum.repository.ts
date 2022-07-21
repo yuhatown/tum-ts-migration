@@ -1,7 +1,7 @@
-import { TumDataSource } from "../../data-source"
-import { User } from "../user/entity/user.entity"
-import { TumEach } from "./entity/tum.each.entity"
-import { Tum } from "./entity/tum.entity"
+import { TumDataSource } from "../../../data-source"
+import { User } from "../../user/database/user.orm-entity"
+import { TumEach } from "./tum.each.orm-entity"
+import { Tum } from "./tum.orm-entity"
 
 export async function CollectWalletStaked(userId: User) {
     const tumEachRepository = TumDataSource.manager.getRepository(TumEach)

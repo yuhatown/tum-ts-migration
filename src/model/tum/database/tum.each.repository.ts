@@ -1,7 +1,7 @@
-import { TumDataSource } from "../../data-source";
-import { WalletStaked } from "../staked/entity/user.wallet.staked.entity";
-import { TokenPrice } from "../token/entity/token.price.entity";
-import { TumEach } from "./entity/tum.each.entity";
+import { TumDataSource } from "../../../data-source";
+import { WalletStaked } from "../../staked/database/user.wallet.staked.orm-entity";
+import { TokenPrice } from "../../token/database/token.price.orm-entity";
+import { TumEach } from "./tum.each.orm-entity";
 
 export async function GetInfo(tokenId: number) {
     

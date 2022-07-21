@@ -1,6 +1,6 @@
-import { TumDataSource } from "../../data-source";
-import { Token } from "../token/entity/token.entity";
-import { UserWallet } from "./entity/user.wallet.entity";
+import { TumDataSource } from "../../../data-source";
+import { Token } from "../../token/database/token.orm-entity";
+import { UserWallet } from "./user.wallet.orm-entity";
 
 export async function RegisterUserWallet(
   relationToken: string,

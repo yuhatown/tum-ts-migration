@@ -1,5 +1,5 @@
-import { Token } from "./entity/token.entity";
-import { GetTokenPriceList, RegisterTokenPrice } from "./token.price.orm";
+import { Token } from "./database/token.orm-entity";
+import { GetTokenPriceList, RegisterTokenPrice } from "./database/token.price.repository";
 
 interface TokenPriceRegisterTable {
     tokenId: Token,

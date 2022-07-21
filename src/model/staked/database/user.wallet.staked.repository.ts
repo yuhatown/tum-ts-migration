@@ -1,8 +1,8 @@
-import { TumDataSource  } from "../../data-source";
-import { UserWallet } from "../user/entity/user.wallet.entity";
-import { UserWalletMap } from "../user/entity/user.wallet.map.entity";
-import { nearStaked } from "./chain/user.wallet.staked.near.service";
-import { WalletStaked } from "./entity/user.wallet.staked.entity";
+import { TumDataSource  } from "../../../data-source";
+import { UserWallet } from "../../user/database/user.wallet.orm-entity";
+import { UserWalletMap } from "../../user/database/user.wallet.map.orm-entity";
+import { nearStaked } from "../chain/user.wallet.staked.near.service";
+import { WalletStaked } from "./user.wallet.staked.orm-entity";
 
 export async function GetWalletAddress(userId: number, walletId: number) {
     const walletRepository = await TumDataSource.manager.getRepository(UserWallet)

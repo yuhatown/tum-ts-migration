@@ -1,7 +1,7 @@
 import * as nearAPI from "near-api-js";
-import { UserWalletMap } from "../../user/entity/user.wallet.map.entity";
-import { WalletStaked } from "../entity/user.wallet.staked.entity";
-import { RegisterUsetWalletStaked } from "../user.wallet.staked.orm";
+import { UserWalletMap } from "../../user/database/user.wallet.map.orm-entity";
+import { WalletStaked } from "../database/user.wallet.staked.orm-entity";
+import { RegisterUsetWalletStaked } from "../database/user.wallet.staked.repository";
 const { connect } = nearAPI;
 
 interface Config {

@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { WalletStaked } from "../../staked/entity/user.wallet.staked.entity";
-import { TokenPrice } from "../../token/entity/token.price.entity";
+import { WalletStaked } from "../../staked/database/user.wallet.staked.orm-entity";
+import { TokenPrice } from "../../token/database/token.price.orm-entity";
 
 @Entity({ name: "tum_each" })
 export class TumEach {

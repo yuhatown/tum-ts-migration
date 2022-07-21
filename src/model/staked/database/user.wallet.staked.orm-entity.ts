@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany, ManyToOne } from "typeorm"
-import { Token } from "../../token/entity/token.entity"
-import { TumEach } from "../../tum/entity/tum.each.entity"
-import { UserWalletMap } from "../../user/entity/user.wallet.map.entity"
+import { Token } from "../../token/database/token.orm-entity"
+import { TumEach } from "../../tum/database/tum.each.orm-entity"
+import { UserWalletMap } from "../../user/database/user.wallet.map.orm-entity"
 
 
 @Entity()

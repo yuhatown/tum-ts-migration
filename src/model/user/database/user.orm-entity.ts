@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Tum } from "../../tum/entity/tum.entity";
-import { UserWalletMap } from "./user.wallet.map.entity";
+import { Tum } from "../../tum/database/tum.orm-entity";
+import { UserWalletMap } from "./user.wallet.map.orm-entity";
 @Entity({ name: 'user'})
 export class User {
 
