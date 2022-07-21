@@ -10,7 +10,7 @@ router.get("/list", (_req, res) => {
   res.status(201).send();
 });
 
-router.post("/register/all", (_req, res) => {
+router.get("/register/all", (_req, res) => {
     axiosTokenInfoRegister();
     res.status(201).send();
 });
