@@ -2,7 +2,7 @@ import axios from "axios";
 import { tokenInfoConfig } from "../../config";
 import { TokenPriceRegister } from "../token/token.price.service";
 
-export const tokenPriceInfo = async () => {
+export const tokenPriceInfoRegister = async () => {
     const response = await axios(tokenInfoConfig)
     const token = response.data
 

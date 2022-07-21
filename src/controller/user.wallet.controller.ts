@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
     res.status(201).send();
 })
 
-router.post('/update/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {
     const walletId = parseInt(req.params.id);
     const { tokenId, userWallet } = req.body;
     const wallet = new UserWalletUpdate(walletId, tokenId, userWallet)
@@ -18,7 +18,7 @@ router.post('/update/:id', (req, res) => {
     res.status(201).send();
 })
 
-router.post('/delete/:id', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
     const walletId = parseInt(req.params.id);
     const wallet = new UserWalletDelete(walletId);
     wallet.delete(walletId);

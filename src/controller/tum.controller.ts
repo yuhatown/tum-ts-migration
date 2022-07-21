@@ -3,7 +3,7 @@ import { WalletStaked } from "../model/tum/tum.service";
 
 const router = express.Router();
 
-router.get("/collect", (req, res) => {
+router.post("/collect", (req, res) => {
     const userId = req.body.id
     const tum = new WalletStaked(userId)
     tum.get(userId)

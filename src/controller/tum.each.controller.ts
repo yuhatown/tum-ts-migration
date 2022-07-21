@@ -3,7 +3,7 @@ import { InfoGet } from "../model/tum/tum.each.service";
 
 const router = express.Router();
 
-router.get("/near", (req, res) => {
+router.post("/near", (req, res) => {
     const tokenId = req.body.id
     const info = new InfoGet(tokenId)
     info.get(tokenId)
