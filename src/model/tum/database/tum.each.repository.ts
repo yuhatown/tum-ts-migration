@@ -3,6 +3,23 @@ import { WalletStaked } from "../../staked/database/user.wallet.staked.orm-entit
 import { TokenPrice } from "../../token/database/token.price.orm-entity";
 import { TumEach } from "./tum.each.orm-entity";
 
+export async function GetTumEach(stakedId: number) {
+    const tumEach = TumDataSource.manager.getRepository(TumEach)
+    const tumEachInfo = await tumEach.find({
+        order: {
+            id: "DESC",
+        },
+        take: 1,
+        relations: {
+            walletStaked: true
+        },
+        where: {
+            walletStaked: { id: stakedId }
+        }
+    })
+    console.log(tumEachInfo);
+}
+
 export async function GetInfo(tokenId: number) {
     
     const walletInfo = TumDataSource.manager.getRepository(WalletStaked)
