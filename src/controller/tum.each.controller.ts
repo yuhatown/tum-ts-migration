@@ -1,12 +1,11 @@
 import * as express from "express";
-import { InfoGet } from "../model/tum/tum.each.service";
+import { GetInfo } from "../model/tum/database/tum.each.repository";
 
 const router = express.Router();
 
-router.post("/register/near", (req, res) => {
+router.post("/near", (req, res) => {
     const tokenId = req.body.id
-    const info = new InfoGet(tokenId)
-    info.get(tokenId)
+    GetInfo(tokenId)
     res.status(201).send()
 })
 

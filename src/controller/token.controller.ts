@@ -4,13 +4,13 @@ import { axiosTokenInfoRegister } from "../model/token/token.axios.service";
 
 const router = express.Router();
 
-router.get("/list", (_req, res) => {
+router.get("/", (_req, res) => {
   const tokenList = new TokenListGet;
   tokenList.get();
   res.status(201).send();
 });
 
-router.get("/register/all", (_req, res) => {
+router.get("/all", (_req, res) => {
     axiosTokenInfoRegister();
     res.status(201).send();
 });

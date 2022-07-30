@@ -4,21 +4,21 @@ import { UserWalletMapDelete, UserWalletMapGet, UserWalletMapRegister } from "..
 
 const router = express.Router();
 
-router.get('/info', (req, res) => {
+router.get('/', (req, res) => {
     const userId = req.body.id
     const userMap = new UserWalletMapGet(userId)
     userMap.get(userId)
     res.status(201).send();
 })
 
-router.post('/register', (req, res) => {
+router.post('/', (req, res) => {
     const { userId, walletId } = req.body
     const userMap = new UserWalletMapRegister(userId, walletId)
     userMap.register(userId, walletId)
     res.status(201).send();
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     const mapId = req.body.id
     const userMap = new UserWalletMapDelete(mapId)
     userMap.delete(mapId)
