@@ -3,6 +3,19 @@ import { User } from "../../user/database/user.orm-entity"
 import { TumEach } from "./tum.each.orm-entity"
 import { Tum } from "./tum.orm-entity"
 
+export async function GetTum(userId: number) {
+    const userTum = await TumDataSource.manager.find(Tum, {
+        order: {
+            id: "DESC",
+        },
+        take: 1,
+        where: {
+            user: {id: userId}
+        }
+    })
+    console.log(userTum);
+}
+
 export async function CollectWalletStaked(userId: User) {
     const tumEachRepository = TumDataSource.manager.getRepository(TumEach)
     const walletStakedInfo = await tumEachRepository.find({

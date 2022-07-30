@@ -25,8 +25,6 @@ export async function GetWalletAddress(userId: number, walletId: number) {
         }
     })
     const mapId: any = mapInfo[0].id
-    console.log(mapId);
-    
 
     nearStaked(wallet[0].address, mapId, tokenId)
 }

@@ -1,6 +1,9 @@
 import { User } from "../user/database/user.orm-entity";
-import { CollectWalletStaked, RegisterTum } from "./database/tum.repository";
+import { CollectWalletStaked, GetTum, RegisterTum } from "./database/tum.repository";
 
+interface tumGetTable {
+    userId: number
+}
 
 interface walletStakedCollect {
     userId: User
@@ -10,6 +13,16 @@ interface tumRegisterTable {
     valueUsd: string
     valueKrw: string
     user: User
+}
+
+export class UserTumGet implements tumGetTable {
+    userId: number
+    constructor(userId: number) {
+        this.userId = userId
+    }
+    get(userId: number) {
+        GetTum(userId)
+    }
 }
 
 export class WalletStaked implements walletStakedCollect{
