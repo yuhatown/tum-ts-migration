@@ -7,7 +7,7 @@ export const tokenPriceInfoRegister = async () => {
     const token = response.data
 
     for (let i = 0; i < token.length; i++) {
-        const tokenId: any = i + 1;
+        const tokenId = i + 1;
         RegisterTokenPrice(tokenId, token[i].current_price)
       }      
 }

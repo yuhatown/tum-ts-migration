@@ -28,13 +28,13 @@ export async function CollectWalletStaked(userId: User) {
         }
     })
 
-    let tumTotal: any = 0
+    let tumTotal = 0
     for (let i = 0; i < walletStakedInfo.length; i++) {
         tumTotal += parseInt(walletStakedInfo[i].valueStaked)
     } 
     
     const valueKrw = (tumTotal * 1300).toString()
-    RegisterTum(tumTotal, valueKrw, userId)
+    RegisterTum(tumTotal.toString(), valueKrw, userId)
 }
 
 export async function RegisterTum(valueUsd: string, valueKrw: string, user: User) {

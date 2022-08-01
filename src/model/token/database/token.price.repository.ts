@@ -1,5 +1,4 @@
 import { TumDataSource  } from "../../../data-source";
-import { Token } from "./token.orm-entity";
 import { TokenPrice } from "./token.price.orm-entity";
 
 export async function GetTokenPriceList() {
@@ -7,9 +6,9 @@ export async function GetTokenPriceList() {
     console.log(tokenPriceList)
 }
 
-export async function RegisterTokenPrice(tokenId: Token, tokenPrice: string) {
+export async function RegisterTokenPrice(tokenId: number, tokenPrice: string) {
     const newTokenPrice = TumDataSource.manager.create(TokenPrice, {
-        token: tokenId,
+        token: { id: tokenId },
         price: tokenPrice
     })
     await TumDataSource.manager.save(newTokenPrice)

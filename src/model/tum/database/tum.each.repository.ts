@@ -55,10 +55,10 @@ export async function GetInfo(tokenId: number) {
     RegisterWalletTumEach(tokenPrice[0].token.id, tokenStaked[0].userWalletMap.id, tokenTumEach)
 }
 
-export async function RegisterWalletTumEach(priceId: any, stakedId: any, tokenTumEach: string) {
+export async function RegisterWalletTumEach(priceId: number, stakedId: number, tokenTumEach: string) {
     const walletTumEach = TumDataSource.manager.create(TumEach, {
-        tokenPrice: priceId,
-        walletStaked: stakedId,
+        tokenPrice: { id: priceId },
+        walletStaked: { id: stakedId },
         valueStaked: tokenTumEach
     })
     await TumDataSource.manager.save(walletTumEach);  

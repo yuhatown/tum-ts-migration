@@ -5,7 +5,7 @@ export async function GetUserWalletMap(userId: number){
     const userWalletRepository = TumDataSource.manager.getRepository(UserWalletMap)
     const userWalletList = await userWalletRepository.find({
         where: {
-            user: {id: userId}
+            user: { id: userId }
         },
         relations: {
             user: true,
@@ -17,8 +17,8 @@ export async function GetUserWalletMap(userId: number){
 
 export async function RegisterUserWalletMap(userId: number, walletId: number) {
     const newUserWalletMap = TumDataSource.manager.create(UserWalletMap, {
-        user: {id: userId},
-        userWallet: {id: walletId},
+        user: { id: userId },
+        userWallet: { id: walletId },
       });
       await TumDataSource.manager.save(newUserWalletMap);
       console.log("Saved a new user with id: " + newUserWalletMap.id);
