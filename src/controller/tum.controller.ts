@@ -7,7 +7,6 @@ router.get("/:id", (req, res) => {
     const userId = parseInt(req.params.id)
     GetTum(userId)
     res.status(201).send()
-
 })
 
 router.post("/", (req, res) => {
