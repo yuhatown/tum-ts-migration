@@ -1,13 +1,11 @@
 import * as express from "express";
-import { GetInfo } from "../model/tum/database/tum.each.repository";
-import { TumEachGet } from "../model/tum/tum.each.service";
+import { GetInfo, GetTumEach } from "../model/tum/database/tum.each.repository";
 
 const router = express.Router();
 
 router.get("/:id", (req, res) => {
     const stakedId = parseInt(req.params.id)
-    const tumEach = new TumEachGet(stakedId)
-    tumEach.get(stakedId)
+    GetTumEach(stakedId)
     res.status(201).send()
 })
 

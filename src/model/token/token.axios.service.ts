@@ -1,12 +1,11 @@
 import axios from "axios";
 import { tokenInfoConfig } from "../../config";
-import { TokenRegister } from "../token/token.service";
+import { RegisterToken } from "./database/token.repository";
 
 export const axiosTokenInfoRegister = async () => {
   const response = await axios(tokenInfoConfig)
   const token = response.data
   for(let i = 0; i < token.length; i++) {
-    const tokenName = new TokenRegister(token[i].id);
-    tokenName.register(token[i].id)
+    RegisterToken(token[i].id)
   }
 }

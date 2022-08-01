@@ -1,27 +1,23 @@
 import * as express from "express";
-import { UserWalletMapDelete, UserWalletMapGet, UserWalletMapRegister } from "../model/user/user.wallet.map.service";
-
+import { DeleteUserWalletMap, GetUserWalletMap, RegisterUserWalletMap } from "../model/user/database/user.wallet.map.repository";
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
     const userId = req.body.id
-    const userMap = new UserWalletMapGet(userId)
-    userMap.get(userId)
+    GetUserWalletMap(userId)
     res.status(201).send();
 })
 
 router.post('/', (req, res) => {
     const { userId, walletId } = req.body
-    const userMap = new UserWalletMapRegister(userId, walletId)
-    userMap.register(userId, walletId)
+    RegisterUserWalletMap(userId, walletId)
     res.status(201).send();
 })
 
 router.delete('/:id', (req, res) => {
     const mapId = req.body.id
-    const userMap = new UserWalletMapDelete(mapId)
-    userMap.delete(mapId)
+    DeleteUserWalletMap(mapId)
     res.status(201).send();
 })
 

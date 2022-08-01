@@ -1,19 +1,18 @@
 import * as express from "express";
-import { UserTumGet, WalletStaked } from "../model/tum/tum.service";
+import { CollectWalletStaked, GetTum } from "../model/tum/database/tum.repository";
 
 const router = express.Router();
 
-router.get("/:id", (req, _res) => {
+router.get("/:id", (req, res) => {
     const userId = parseInt(req.params.id)
-    const tum = new UserTumGet(userId)
-    tum.get(userId)
+    GetTum(userId)
+    res.status(201).send()
 
 })
 
 router.post("/", (req, res) => {
     const userId = req.body.id
-    const tum = new WalletStaked(userId)
-    tum.get(userId)
+    CollectWalletStaked(userId)
     res.status(201).send()
 })
 

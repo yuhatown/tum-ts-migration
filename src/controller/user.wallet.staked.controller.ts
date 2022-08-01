@@ -1,12 +1,11 @@
 import * as express from "express";
-import { WalletAddressGet } from "../model/staked/user.wallet.staked.service";
+import { GetWalletAddressInfo } from "../model/staked/database/user.wallet.staked.repository";
 
 const router = express.Router();
 
 router.post("/near", async (req, res) => {
     const { userId, walletId } = req.body
-    const walletAddress = new WalletAddressGet(userId, walletId);
-    walletAddress.get(userId, walletId);
+    GetWalletAddressInfo(userId, walletId)
     res.status(201).send();
 })
 

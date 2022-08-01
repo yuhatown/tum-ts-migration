@@ -1,12 +1,11 @@
 import * as express from "express";
-import { TokenPriceListGet } from "../model/token/token.price.service";
 import { tokenPriceInfoRegister } from "../model/token/token.price.axios.service";
+import { GetTokenPriceList } from "../model/token/database/token.price.repository";
 
 const router = express.Router();
 
 router.get("/", (_req, res) => {
-  const tokenPriceList = new TokenPriceListGet();
-  tokenPriceList.get();
+  GetTokenPriceList();
   res.status(201).send();
 });
 

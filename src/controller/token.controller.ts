@@ -1,12 +1,11 @@
 import * as express from "express";
-import { TokenDelete, TokenListGet, TokenUpdate } from "../model/token/token.service";
 import { axiosTokenInfoRegister } from "../model/token/token.axios.service";
+import { DeleteToken, GetTokenList, UpdateToken } from "../model/token/database/token.repository";
 
 const router = express.Router();
 
 router.get("/", (_req, res) => {
-  const tokenList = new TokenListGet;
-  tokenList.get();
+  GetTokenList();
   res.status(201).send();
 });
 
@@ -18,15 +17,13 @@ router.get("/all", (_req, res) => {
 router.put("/:id", (req, res) => {
   const tokenId = parseInt(req.params.id);
   const tokenName = req.body.name;
-  const token = new TokenUpdate(tokenId, tokenName);
-  token.update(tokenId, tokenName)
+  UpdateToken(tokenId, tokenName)
   res.status(201).send();
 })
 
 router.delete("/:id", (req, res) => {
   const tokenId = parseInt(req.params.id);
-  const token = new TokenDelete(tokenId);
-  token.delete(tokenId);
+  DeleteToken(tokenId)
   res.status(201).send();
 })
 

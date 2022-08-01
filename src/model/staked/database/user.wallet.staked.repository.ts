@@ -4,7 +4,7 @@ import { UserWalletMap } from "../../user/database/user.wallet.map.orm-entity";
 import { nearStaked } from "../chain/user.wallet.staked.near.service";
 import { WalletStaked } from "./user.wallet.staked.orm-entity";
 
-export async function GetWalletAddress(userId: number, walletId: number) {
+export async function GetWalletAddressInfo(userId: number, walletId: number) {
     const walletRepository = await TumDataSource.manager.getRepository(UserWallet)
     const wallet = await walletRepository.find({
         relations: {

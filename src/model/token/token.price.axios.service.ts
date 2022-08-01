@@ -1,6 +1,6 @@
 import axios from "axios";
 import { tokenInfoConfig } from "../../config";
-import { TokenPriceRegister } from "../token/token.price.service";
+import { RegisterTokenPrice } from "./database/token.price.repository";
 
 export const tokenPriceInfoRegister = async () => {
     const response = await axios(tokenInfoConfig)
@@ -8,7 +8,6 @@ export const tokenPriceInfoRegister = async () => {
 
     for (let i = 0; i < token.length; i++) {
         const tokenId: any = i + 1;
-        const tokenPrice = new TokenPriceRegister(tokenId, token[i].current_price)
-        tokenPrice.register(tokenId, token[i].current_price)
+        RegisterTokenPrice(tokenId, token[i].current_price)
       }      
 }

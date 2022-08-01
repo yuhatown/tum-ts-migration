@@ -1,35 +1,31 @@
 import * as express from "express";
-import { UserDelete, UserGet, UserRegister, UserUpdate } from "../model/user/user.service";
+import { DeleteUser, GetUser, RegisterUser, UpdateUser } from "../model/user/database/user.repository";
 
 const router = express.Router();
 
 router.get('/:id', (req, res) => {
     const userId = parseInt(req.params.id);
-    const userList = new UserGet(userId);
-    userList.get(userId);
+    GetUser(userId)
     res.status(201).send();
 })
 
 router.post('/', async (req, res) => {
     const userName = req.body.name;
-    const user = new UserRegister(userName);
-    user.register(userName);
+    RegisterUser(userName)
     res.status(201).send();
 })
 
 router.put('/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     const userName = req.body.name;
-    const user = new UserUpdate(userId, userName);
-    user.update(userId, userName);
+    UpdateUser(userId, userName)
     res.status(201).send();
 })
 
 router.delete('/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     const userActive = req.body.active;
-    const user = new UserDelete(userId, userActive);
-    user.delete(userId, userActive);
+    DeleteUser(userId, userActive)
     res.status(201).send();
 })
 
